@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // declare function to choose criteria and return a string = password
@@ -6,7 +5,8 @@ function generatePassword() {
   // determine password length
   var length = prompt('How long do you want the password to be? Pick a number between 8 and 128.')
   if (length < 8 || length > 128 || (isNaN(length))) {
-  alert('Choose a number between 8 and 128.')
+  alert('Choose a number between 8 and 128.');
+  return "Try again"
   };
 
   // determine type of characters
@@ -16,7 +16,8 @@ function generatePassword() {
   var characters = confirm('Do you want to include special characters?');
 
   if (lowercase  == false && uppercase  == false && numbers  == false && characters  == false) {
-    alert('You must choose at least one of the following options.')
+    alert('You must choose at least one type of character.');
+    return "Try again"
 };
 
 //determine number of characters to select from each array
