@@ -1,8 +1,8 @@
 // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
-// declare function to choose criteria 
-// function generatePassword() {
+// declare function to choose criteria and return a string = password
+function generatePassword() {
   // determine password length
   var length = prompt('How long do you want the password to be? Pick a number between 8 and 128.')
   if (length < 8 || length > 128 || (isNaN(length))) {
@@ -76,17 +76,18 @@ if (characters === true) {
     passwordContent = passwordContent.concat(charactersArr[Math.floor(Math.random()*charactersArr.length)]);
   }
 }
-  console.log(passwordContent);
+return passwordContent;
+}
 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  //select text area with id password
   var passwordText = document.querySelector("#password");
-
+  // set password inside text area
   passwordText.value = password;
 
 }
-//};
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword)
+// Add event listener to generate button. writePassword is called when button is clicked
+generateBtn.addEventListener("click", writePassword)
