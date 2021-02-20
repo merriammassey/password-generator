@@ -21,7 +21,26 @@
     // return /* or call function again */
 };
 
+//determine number of characters to select from each array
+var answerCount = 0;
+if (lowercase === true) {
+  answerCount++;
+}
+if (uppercase === true) {
+  answerCount++;
+}
+if (numbers === true) {
+  answerCount++;
+}
+if (characters === true) {
+  answerCount++;
+}
 
+function numOfCharFromArrays(num1, num2) {
+  return(Math.floor(num1/num2));
+}
+
+numOfCharFromArrays(length, answerCount);
 
 // Write password to the #password input
 function writePassword() {
