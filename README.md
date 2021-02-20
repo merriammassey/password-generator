@@ -3,7 +3,8 @@
 ## Purpose
 To build an application that: 
 * generates a random password based on user-selected criteria,
-* runs in the browser and features dynamically updated HTML and CSS powered  JavaScript,
+* runs in the browser,
+* features dynamically updated HTML and CSS powered JavaScript,
 * features a clean and polished user interface, and 
 * is responsive, adapting to multiple screen sizes.
 
