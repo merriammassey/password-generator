@@ -77,6 +77,21 @@ if (passwordContent.length < length) {
 return passwordContent;
 }
 
+/*
+shufflePasswordContent = function() {
+  var a = this.split(''),
+  n = a.length;
+
+  for (var i = n-1; i>0; i--);
+  var j = Math.floor(Math.random()*(i+1));
+  var temp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
+}
+return a.join('');
+}
+*/
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
