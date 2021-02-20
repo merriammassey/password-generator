@@ -7,7 +7,6 @@ function generatePassword() {
   var length = prompt('How long do you want the password to be? Pick a number between 8 and 128.')
   if (length < 8 || length > 128 || (isNaN(length))) {
   alert('Choose a number between 8 and 128.')
-  // return 
   };
 
   // determine type of characters
@@ -18,7 +17,6 @@ function generatePassword() {
 
   if (lowercase  == false && uppercase  == false && numbers  == false && characters  == false) {
     alert('You must choose at least one of the following options.')
-    // return /* or call function again */
 };
 
 //determine number of characters to select from each array
@@ -36,19 +34,12 @@ if (characters === true) {
   answerCount++;
 }
 
-// function numOfCharFromArrays(num1, num2) {
-//   return(Math.floor(num1/num2));
-// }
-
-// numOfCharFromArrays(length, answerCount);
-
 var picker = Math.floor(length/answerCount);
-console.log(picker);
 
 var lowercaseArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 var uppercaseArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 var numbersArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-var charactersArr = ['!', '@', '$']
+var charactersArr = ['!', '@', '$', '#', '&', '*', '%', '+', '^', '(', ')']
 
 var passwordContent = ""; 
 if (lowercase === true) {
@@ -76,9 +67,14 @@ if (characters === true) {
     passwordContent = passwordContent.concat(charactersArr[Math.floor(Math.random()*charactersArr.length)]);
   }
 }
+if (passwordContent.length < length) {
+  var difference = length - passwordContent.length;
+  for (i=0; i<difference; i++) {
+    passwordContent = passwordContent.concat(passwordContent[Math.floor(Math.random()*passwordContent.length)]);
+    };
+}
 return passwordContent;
 }
-
 
 // Write password to the #password input
 function writePassword() {
