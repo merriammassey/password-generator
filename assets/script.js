@@ -74,24 +74,31 @@ if (passwordContent.length < length) {
     passwordContent = passwordContent.concat(passwordContent[Math.floor(Math.random()*passwordContent.length)]);
     };
 }
-return passwordContent;
+// run the Scramble function and return its contents
+// returning and running a function in the same line will return the value of that function outside the bigger function
+return scramble(passwordContent);
+}
+
+
+// A function to scramble passwordContent
+function scramble(passwordContent) {
+  var password = "";
+  for (i=0; i<passwordContent.length; i++) {
+    var index = Math.floor(Math.random()* passwordContent.length);
+    // build the new string password by adding a character from a random location
+    password += passwordContent.charAt(index);
+  }
+    return password
 }
 
 // Write password to the #password input
 function writePassword() {
-  var passwordContent = generatePassword();
-  var password = "";
-  // scramble passwordContent
-  for (i=0; i<passwordContent.length; i++) {
-    var index = Math.floor(Math.random()* passwordContent.length)
-    // build the new string password by adding a character from a random location
-    password += passwordContent.charAt(index)
-  }
+  var password = generatePassword();
   //select text area with id password
   var passwordText = document.querySelector("#password");
   // set password inside text area
   passwordText.value = password;
-
 }
+
 // Add event listener to generate button. writePassword is called when button is clicked
 generateBtn.addEventListener("click", writePassword)
